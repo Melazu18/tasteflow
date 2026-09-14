@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --background: 252 247 237;
+  --foreground: 19 31 31;
+  --card: 255 253 248;
+  --card-foreground: 19 31 31;
+  --primary: 13 102 96;
+  --primary-foreground: 255 255 255;
+  --secondary: 232 244 238;
+  --secondary-foreground: 18 72 68;
+  --muted: 240 235 225;
+  --muted-foreground: 95 108 103;
+  --accent: 18 171 157;
+  --accent-foreground: 255 255 255;
+  --border: 221 211 195;
+  --ring: 18 171 157;
+  --gold: 180 136 71;
+  --wine: 110 48 67;
+  --shadow-soft: 0 24px 80px rgba(22, 45, 43, 0.10);
+  --shadow-premium: 0 30px 120px rgba(13, 102, 96, 0.18);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: 9 18 18;
+  --foreground: 238 247 243;
+  --card: 16 31 31;
+  --card-foreground: 238 247 243;
+  --primary: 71 218 198;
+  --primary-foreground: 7 18 18;
+  --secondary: 23 58 55;
+  --secondary-foreground: 219 244 235;
+  --muted: 22 43 42;
+  --muted-foreground: 172 195 188;
+  --accent: 52 211 190;
+  --accent-foreground: 7 18 18;
+  --border: 42 67 64;
+  --ring: 71 218 198;
+  --gold: 219 174 101;
+  --wine: 183 92 116;
+  --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.28);
+  --shadow-premium: 0 30px 120px rgba(45, 212, 191, 0.14);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))] antialiased;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background:
+      radial-gradient(circle at 10% -10%, rgba(18, 171, 157, 0.18), transparent 34rem),
+      radial-gradient(circle at 92% 8%, rgba(180, 136, 71, 0.14), transparent 28rem),
+      linear-gradient(180deg, rgb(var(--background)), rgb(var(--background)) 55%, rgba(232, 244, 238, .55));
+  }
+  h1, h2, h3 { letter-spacing: -0.045em; }
+  a { @apply transition-colors; }
+  ::selection { background: rgba(18, 171, 157, .22); }
+}
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .premium-shell { @apply relative overflow-hidden rounded-[2rem] shadow-premium backdrop-blur-2xl; border: 1px solid rgba(255,255,255,.60); background: rgba(255,255,255,.45); }
+  .dark .premium-shell { border-color: rgba(255,255,255,.10); background: rgba(255,255,255,.05); }
+  .panel { @apply rounded-[1.75rem] shadow-soft backdrop-blur-xl transition duration-300; border: 1px solid rgb(var(--border) / .80); background: rgb(var(--card) / .88); }
+  .panel-hover { @apply hover:-translate-y-1 hover:border-[rgb(var(--primary))]/35 hover:shadow-premium; }
+  .chip { @apply inline-flex items-center rounded-full px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[rgb(var(--primary))] shadow-sm backdrop-blur; border: 1px solid rgb(var(--border) / .80); background: rgba(255,255,255,.60); }
+  .dark .chip { background: rgba(255,255,255,.05); }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.24em] text-[rgb(var(--gold))]; }
+  .section-title { @apply text-3xl font-semibold tracking-[-0.045em] sm:text-4xl lg:text-5xl; }
+  .section-copy { @apply max-w-2xl text-base leading-7 text-[rgb(var(--muted-foreground))] sm:text-lg; }
+  .luxury-divider { @apply h-px w-full bg-gradient-to-r from-transparent via-[rgb(var(--border))] to-transparent; }
+  .glass-map { background-image: linear-gradient(rgba(13,102,96,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(13,102,96,.08) 1px, transparent 1px); background-size: 44px 44px; }
+}
