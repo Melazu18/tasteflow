@@ -51,7 +51,7 @@ export function Header() {
           <img
             src="/TasteFlow_Logo.png"
             alt="TasteFlow"
-            className="h-9 w-auto object-contain sm:h-10 xl:h-11"
+            className="h-9 w-auto object-contain sm:h-10 xl:h-11 dark:brightness-0 dark:invert"
           />
         </Link>
 

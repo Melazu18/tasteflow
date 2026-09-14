@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container-page">
         <div className="premium-shell grid gap-8 p-7 md:grid-cols-[1.2fr_.8fr_.8fr_.8fr]">
           <div>
-            <img src="/TasteFlow_Logo.png" alt="TasteFlow" className="h-12 w-auto object-contain" />
+            <img src="/TasteFlow_Logo.png" alt="TasteFlow" className="h-12 w-auto object-contain dark:brightness-0 dark:invert" />
             <p className="mt-4 max-w-sm text-sm leading-6 text-[rgb(var(--muted-foreground))]">A premium marketplace for hospitality discovery, menus, events, offers, and B2B growth.</p>
           </div>
           {['marketplaceFooter','businessFooter','companyFooter'].map((h,i)=>(
