@@ -15,6 +15,8 @@ const dictionaries: Record<Locale, Dictionary> = {
   en: {
     discover: 'Discover',
     palate: 'Palate DNA',
+    concierge: 'Concierge',
+    blendLab: 'Blend Lab',
     menus: 'Menus',
     events: 'Events',
     pricing: 'Pricing',
@@ -77,6 +79,8 @@ const dictionaries: Record<Locale, Dictionary> = {
   sv: {
     discover: 'Upptäck',
     palate: 'Palat-DNA',
+    concierge: 'Concierge',
+    blendLab: 'Blandningslabb',
     menus: 'Menyer',
     events: 'Evenemang',
     pricing: 'Priser',
@@ -139,6 +143,8 @@ const dictionaries: Record<Locale, Dictionary> = {
   fr: {
     discover: 'Découvrir',
     palate: 'ADN du palais',
+    concierge: 'Concierge',
+    blendLab: 'Laboratoire',
     menus: 'Menus',
     events: 'Événements',
     pricing: 'Tarifs',
@@ -201,6 +207,8 @@ const dictionaries: Record<Locale, Dictionary> = {
   es: {
     discover: 'Descubrir',
     palate: 'ADN del paladar',
+    concierge: 'Concierge',
+    blendLab: 'Laboratorio',
     menus: 'Menús',
     events: 'Eventos',
     pricing: 'Precios',

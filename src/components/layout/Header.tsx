@@ -10,6 +10,8 @@ import { ThemeToggle } from './ThemeToggle';
 const links = [
   ['discover', '/discover'],
   ['palate', '/palate'],
+  ['concierge', '/concierge'],
+  ['blendLab', '/blend-lab'],
   ['menus', '/menus'],
   ['events', '/events'],
   ['pricing', '/pricing'],

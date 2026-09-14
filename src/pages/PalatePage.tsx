@@ -7,6 +7,7 @@ import {
   calculatePalateProfile,
   defaultTastingScores,
   getProfileDescription,
+  loadTastingEntries,
   palateDimensions,
   tastingSamples,
   type TastingEntry,
@@ -16,19 +17,8 @@ import { getMenuRecommendations } from '@/lib/recommendations';
 
 const storageKey = 'tasteflow.tasting-entries';
 
-function readEntries(): TastingEntry[] {
-  if (typeof window === 'undefined') return [];
-
-  try {
-    const storedEntries = window.localStorage.getItem(storageKey);
-    return storedEntries ? (JSON.parse(storedEntries) as TastingEntry[]) : [];
-  } catch {
-    return [];
-  }
-}
-
 export function PalatePage() {
-  const [entries, setEntries] = useState<TastingEntry[]>(readEntries);
+  const [entries, setEntries] = useState<TastingEntry[]>(loadTastingEntries);
   const [sample, setSample] = useState(tastingSamples[0]);
   const [notes, setNotes] = useState('');
   const [scores, setScores] = useState<TastingScores>(defaultTastingScores);

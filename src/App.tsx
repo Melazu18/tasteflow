@@ -3,11 +3,13 @@ import { MainLayout } from '@/components/layout/MainLayout';
 import { AboutPage } from '@/pages/AboutPage';
 import { BusinessRegisterPage } from '@/pages/BusinessRegisterPage';
 import { ContactPage } from '@/pages/ContactPage';
+import { ConciergePage } from '@/pages/ConciergePage';
 import { DashboardPage } from '@/pages/DashboardPage';
 import { DiscoverPage } from '@/pages/DiscoverPage';
 import { EventsPage } from '@/pages/EventsPage';
 import { HomePage } from '@/pages/HomePage';
 import { MenusPage } from '@/pages/MenusPage';
+import { BlendLabPage } from '@/pages/BlendLabPage';
 import { PalatePage } from '@/pages/PalatePage';
 import { PricingPage } from '@/pages/PricingPage';
 import { VenuePage } from '@/pages/VenuePage';
@@ -21,6 +23,8 @@ export function App() {
         <Route path="/venues/:venueId" element={<VenuePage />} />
         <Route path="/menus" element={<MenusPage />} />
         <Route path="/palate" element={<PalatePage />} />
+        <Route path="/concierge" element={<ConciergePage />} />
+        <Route path="/blend-lab" element={<BlendLabPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/about" element={<AboutPage />} />

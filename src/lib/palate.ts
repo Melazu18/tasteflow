@@ -37,6 +37,17 @@ export const defaultTastingScores: TastingScores = {
   aroma: 4,
 };
 
+export function loadTastingEntries(): TastingEntry[] {
+  if (typeof window === 'undefined') return [];
+
+  try {
+    const storedEntries = window.localStorage.getItem('tasteflow.tasting-entries');
+    return storedEntries ? (JSON.parse(storedEntries) as TastingEntry[]) : [];
+  } catch {
+    return [];
+  }
+}
+
 export function calculatePalateProfile(entries: TastingEntry[]): PalateProfile {
   if (!entries.length) {
     return { ...defaultTastingScores, tastings: 0 };
