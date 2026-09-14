@@ -23,7 +23,9 @@ export function EventCard({ event }: { event: Event }) {
       <CardTitle className="mt-4">{event.title}</CardTitle>
       <CardText className="mt-1">{venue?.name} · {venue?.city}</CardText>
       <div className="mt-5 grid gap-2 rounded-3xl border border-[rgb(var(--border))]/80 bg-white/45 p-4 text-sm text-[rgb(var(--muted-foreground))] shadow-innerGlow dark:bg-white/5">
-        <span className="flex items-center gap-2"><CalendarDays size={16}/>{event.date}</span>
+        <span className="flex items-center gap-2"><CalendarDays size={16}/>{event.recurrence ?? event.date}</span>
+        {event.recurrence && <span className="text-xs">Next session: {event.date}</span>}
+        {event.address && <span>{event.address}</span>}
         <span className="flex items-center gap-2"><Users size={16}/>{event.seats} seats</span>
       </div>
       <div className="mt-5 flex items-center justify-between gap-3"><strong className="text-lg">{formatConvertedCurrency(event.price, event.currency, currency)}</strong><Button type="button" variant={reserved ? 'secondary' : 'primary'} onClick={handleReservation}>{reserved && <CalendarCheck size={18}/>} {reserved ? 'Reserved' : 'Reserve'}</Button></div>

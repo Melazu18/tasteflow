@@ -23,6 +23,7 @@ export function VenuePage() {
               <h1 className="mt-4 text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">{venue.name}</h1>
               <p className="mt-3 flex items-center gap-2 text-[rgb(var(--muted-foreground))]"><MapPin size={18}/>{venue.city}, {venue.country} · {venue.distanceKm} km nearby</p>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-[rgb(var(--muted-foreground))]">{venue.description}</p>
+              {venue.website && <a className="mt-4 inline-block font-semibold text-[rgb(var(--primary))] hover:text-[rgb(var(--accent))]" href={venue.website} target="_blank" rel="noreferrer">{venue.website.replace('https://', '')}</a>}
             </div>
             <Card className="min-w-64 bg-white/70 dark:bg-white/5">
               <CardText>Public trust score</CardText>

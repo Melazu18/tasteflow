@@ -25,6 +25,7 @@ export type Venue = {
   tags: string[];
   description: string;
   offer: string;
+  website?: string;
   coordinates: [number, number];
 };
 
@@ -45,6 +46,8 @@ export type Event = {
   venueId: string;
   title: string;
   date: string;
+  recurrence?: string;
+  address?: string;
   seats: number;
   price: number;
   currency: SupportedCurrency;
@@ -120,6 +123,24 @@ export const venues: Venue[] = [
     offer: 'Reserve a cellar flight',
     coordinates: [41.3874, 2.1686],
   },
+  {
+    id: 'tropinord',
+    name: 'TropiNord',
+    type: 'Beverage brand',
+    city: 'Trollhättan',
+    country: 'Sweden',
+    rating: 5,
+    reviews: 0,
+    distanceKm: 0,
+    price: '€€',
+    averagePrice: 145,
+    currency: 'SEK',
+    tags: ['Premium tea', 'Tea tasting', 'Trollhättan'],
+    description: 'Premium teas and guided tasting sessions hosted with local cafés in Trollhättan.',
+    offer: 'Tea tasting sessions every month',
+    website: 'https://www.tropinord.com',
+    coordinates: [58.2837, 12.2886],
+  },
 ];
 
 export const menuItems: MenuItem[] = [
@@ -167,6 +188,28 @@ export const menuItems: MenuItem[] = [
     description: 'Three roasts, aroma notes, and pastry pairing.',
     flavor: { acidity: 4, body: 3, tannin: 1, sweetness: 2, aroma: 5 },
   },
+  {
+    id: 'm5',
+    venueId: 'tropinord',
+    name: 'TropiNord Signature Tea Collection',
+    category: 'Premium tea',
+    price: 245,
+    currency: 'SEK',
+    dietary: ['Vegan'],
+    description: 'A curated collection of high-quality teas selected for aroma, balance, and memorable tasting sessions.',
+    flavor: { acidity: 2, body: 3, tannin: 2, sweetness: 3, aroma: 5 },
+  },
+  {
+    id: 'm6',
+    venueId: 'tropinord',
+    name: 'Nordic Botanical Infusion',
+    category: 'Tea blend',
+    price: 165,
+    currency: 'SEK',
+    dietary: ['Caffeine-free', 'Vegan'],
+    description: 'A fragrant botanical blend created for slow afternoons and guided sensory exploration.',
+    flavor: { acidity: 1, body: 2, tannin: 1, sweetness: 4, aroma: 5 },
+  },
 ];
 
 export const events: Event[] = [
@@ -199,6 +242,30 @@ export const events: Event[] = [
     price: 240,
     currency: 'SEK',
     theme: 'Coffee workshop',
+  },
+  {
+    id: 'e4',
+    venueId: 'tropinord',
+    title: 'TropiNord tea tasting at 12 Knots Coffee Roasters AB',
+    date: '2026-09-26',
+    recurrence: 'Every last Saturday · 12:00',
+    address: 'Österlånggatan 42, 46130 Trollhättan, Sweden',
+    seats: 20,
+    price: 0,
+    currency: 'SEK',
+    theme: 'Tea tasting',
+  },
+  {
+    id: 'e5',
+    venueId: 'tropinord',
+    title: 'TropiNord tea tasting at Restaurang Vesten',
+    date: '2026-09-24',
+    recurrence: 'Every last Thursday · 12:00',
+    address: 'Högskolan Väst, Trollhättan, Sweden',
+    seats: 20,
+    price: 0,
+    currency: 'SEK',
+    theme: 'Tea tasting',
   },
 ];
 
