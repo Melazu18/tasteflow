@@ -55,13 +55,13 @@ export function Header() {
           />
         </Link>
 
-        <nav ref={desktopMenuRef} className="mx-auto hidden min-w-0 items-center rounded-full border border-[rgb(var(--border))]/70 bg-white/50 p-1 shadow-innerGlow backdrop-blur-xl dark:bg-white/5 lg:flex">
+        <nav ref={desktopMenuRef} className="mx-auto hidden min-w-0 items-center rounded-full border border-[rgb(var(--border))]/70 bg-white/50 p-1 shadow-innerGlow backdrop-blur-xl dark:bg-white/5 2xl:flex">
           {primaryLinks.map(([key, to]) => (
             <NavLink
               key={to}
               to={to}
               className={({ isActive }) =>
-                `whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition ${
+                `whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold transition ${
                   isActive
                     ? 'bg-[rgb(var(--primary))] text-[rgb(var(--primary-foreground))] shadow-sm'
                     : 'text-[rgb(var(--muted-foreground))] hover:bg-white/70 hover:text-[rgb(var(--foreground))] dark:hover:bg-white/10'
@@ -72,7 +72,7 @@ export function Header() {
             </NavLink>
           ))}
           <div className="relative">
-            <button type="button" onClick={() => setMenu(menu === 'ai' ? null : 'ai')} className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-white/70 hover:text-[rgb(var(--foreground))] dark:hover:bg-white/10">
+            <button type="button" onClick={() => setMenu(menu === 'ai' ? null : 'ai')} className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-white/70 hover:text-[rgb(var(--foreground))] dark:hover:bg-white/10">
               {t('aiTools')}
             </button>
             {menu === 'ai' && <div className="absolute left-0 top-full z-50 mt-2 grid min-w-48 gap-1 rounded-2xl border border-[rgb(var(--border))]/80 bg-[rgb(var(--card))] p-2 shadow-premium">
@@ -80,7 +80,7 @@ export function Header() {
             </div>}
           </div>
           <div className="relative">
-            <button type="button" onClick={() => setMenu(menu === 'more' ? null : 'more')} className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-white/70 hover:text-[rgb(var(--foreground))] dark:hover:bg-white/10">
+            <button type="button" onClick={() => setMenu(menu === 'more' ? null : 'more')} className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-white/70 hover:text-[rgb(var(--foreground))] dark:hover:bg-white/10">
               {t('more')}
             </button>
             {menu === 'more' && <div className="absolute right-0 top-full z-50 mt-2 grid min-w-36 gap-1 rounded-2xl border border-[rgb(var(--border))]/80 bg-[rgb(var(--card))] p-2 shadow-premium">
@@ -89,24 +89,24 @@ export function Header() {
           </div>
         </nav>
 
-        <div className="hidden min-w-fit items-center gap-2 lg:flex">
+        <div className="hidden min-w-fit items-center gap-1 2xl:flex">
           <LanguageSwitcher />
           <CurrencySwitcher />
           <ThemeToggle />
 
           <Link to="/business/dashboard">
-            <Button variant="outline" className="h-11 whitespace-nowrap px-5">
+            <Button variant="outline" className="h-11 whitespace-nowrap px-4 text-sm">
               {t('dashboard')}
             </Button>
           </Link>
 
           <Link to="/business/register">
-            <Button className="h-11 whitespace-nowrap px-5">{t('register')}</Button>
+            <Button className="h-11 whitespace-nowrap px-4 text-sm">{t('register')}</Button>
           </Link>
         </div>
 
         <button
-          className="ml-auto grid h-11 w-11 place-items-center rounded-full border border-[rgb(var(--border))] bg-white/60 shadow-innerGlow backdrop-blur lg:hidden"
+          className="ml-auto grid h-11 w-11 place-items-center rounded-full border border-[rgb(var(--border))] bg-white/60 shadow-innerGlow backdrop-blur 2xl:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -115,7 +115,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="container-page grid gap-2 pb-5 lg:hidden">
+        <div className="container-page grid gap-2 pb-5 2xl:hidden">
           {[...primaryLinks, ...aiLinks, ...secondaryLinks].map(([key, to]) => (
             <Link
               key={to}
