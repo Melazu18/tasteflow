@@ -1,4 +1,5 @@
 import type { SupportedCurrency } from '@/lib/currency';
+import type { TastingScores } from '@/lib/palate';
 
 export type BusinessType =
   | 'Restaurant'
@@ -36,6 +37,7 @@ export type MenuItem = {
   currency: SupportedCurrency;
   dietary: string[];
   description: string;
+  flavor: TastingScores;
 };
 
 export type Event = {
@@ -130,6 +132,7 @@ export const menuItems: MenuItem[] = [
     currency: 'SEK',
     dietary: ['Pescatarian'],
     description: 'Scallop, sea buckthorn beurre blanc, dill oil.',
+    flavor: { acidity: 4, body: 3, tannin: 1, sweetness: 2, aroma: 4 },
   },
   {
     id: 'm2',
@@ -140,6 +143,7 @@ export const menuItems: MenuItem[] = [
     currency: 'SEK',
     dietary: ['Vegetarian'],
     description: 'A five-course plant-forward seasonal menu.',
+    flavor: { acidity: 3, body: 3, tannin: 1, sweetness: 2, aroma: 4 },
   },
   {
     id: 'm3',
@@ -150,6 +154,7 @@ export const menuItems: MenuItem[] = [
     currency: 'DKK',
     dietary: [],
     description: 'Three local spirits with small bites and origin stories.',
+    flavor: { acidity: 2, body: 4, tannin: 3, sweetness: 2, aroma: 5 },
   },
   {
     id: 'm4',
@@ -160,6 +165,7 @@ export const menuItems: MenuItem[] = [
     currency: 'SEK',
     dietary: ['Vegan option'],
     description: 'Three roasts, aroma notes, and pastry pairing.',
+    flavor: { acidity: 4, body: 3, tannin: 1, sweetness: 2, aroma: 5 },
   },
 ];
 

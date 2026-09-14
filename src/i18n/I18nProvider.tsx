@@ -14,6 +14,7 @@ type I18nContextValue = {
 const dictionaries: Record<Locale, Dictionary> = {
   en: {
     discover: 'Discover',
+    palate: 'Palate DNA',
     menus: 'Menus',
     events: 'Events',
     pricing: 'Pricing',
@@ -75,6 +76,7 @@ const dictionaries: Record<Locale, Dictionary> = {
 
   sv: {
     discover: 'Upptäck',
+    palate: 'Palat-DNA',
     menus: 'Menyer',
     events: 'Evenemang',
     pricing: 'Priser',
@@ -136,6 +138,7 @@ const dictionaries: Record<Locale, Dictionary> = {
 
   fr: {
     discover: 'Découvrir',
+    palate: 'ADN du palais',
     menus: 'Menus',
     events: 'Événements',
     pricing: 'Tarifs',
@@ -197,6 +200,7 @@ const dictionaries: Record<Locale, Dictionary> = {
 
   es: {
     discover: 'Descubrir',
+    palate: 'ADN del paladar',
     menus: 'Menús',
     events: 'Eventos',
     pricing: 'Precios',

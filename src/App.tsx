@@ -8,6 +8,7 @@ import { DiscoverPage } from '@/pages/DiscoverPage';
 import { EventsPage } from '@/pages/EventsPage';
 import { HomePage } from '@/pages/HomePage';
 import { MenusPage } from '@/pages/MenusPage';
+import { PalatePage } from '@/pages/PalatePage';
 import { PricingPage } from '@/pages/PricingPage';
 import { VenuePage } from '@/pages/VenuePage';
 
@@ -19,6 +20,7 @@ export function App() {
         <Route path="/discover" element={<DiscoverPage />} />
         <Route path="/venues/:venueId" element={<VenuePage />} />
         <Route path="/menus" element={<MenusPage />} />
+        <Route path="/palate" element={<PalatePage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/about" element={<AboutPage />} />

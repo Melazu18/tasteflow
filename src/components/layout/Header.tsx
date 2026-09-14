@@ -9,6 +9,7 @@ import { ThemeToggle } from './ThemeToggle';
 
 const links = [
   ['discover', '/discover'],
+  ['palate', '/palate'],
   ['menus', '/menus'],
   ['events', '/events'],
   ['pricing', '/pricing'],
