@@ -4,11 +4,13 @@ import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Card, CardText, CardTitle } from '@/components/ui/Card';
 import { type Event, venues } from '@/data/mock';
-import { formatCurrency } from '@/lib/utils';
+import { useCurrency } from '@/currency/CurrencyProvider';
+import { formatConvertedCurrency } from '@/lib/currency';
 import { hasReservation, toggleReservation } from '@/lib/reservations';
 
 export function EventCard({ event }: { event: Event }) {
   const venue=venues.find(v=>v.id===event.venueId);
+  const { currency } = useCurrency();
   const [reserved, setReserved] = useState(() => hasReservation(event.id));
 
   function handleReservation() {
@@ -24,7 +26,7 @@ export function EventCard({ event }: { event: Event }) {
         <span className="flex items-center gap-2"><CalendarDays size={16}/>{event.date}</span>
         <span className="flex items-center gap-2"><Users size={16}/>{event.seats} seats</span>
       </div>
-      <div className="mt-5 flex items-center justify-between gap-3"><strong className="text-lg">{formatCurrency(event.price)}</strong><Button type="button" variant={reserved ? 'secondary' : 'primary'} onClick={handleReservation}>{reserved && <CalendarCheck size={18}/>} {reserved ? 'Reserved' : 'Reserve'}</Button></div>
+      <div className="mt-5 flex items-center justify-between gap-3"><strong className="text-lg">{formatConvertedCurrency(event.price, event.currency, currency)}</strong><Button type="button" variant={reserved ? 'secondary' : 'primary'} onClick={handleReservation}>{reserved && <CalendarCheck size={18}/>} {reserved ? 'Reserved' : 'Reserve'}</Button></div>
     </Card>
   );
 }

@@ -3,8 +3,10 @@ import { MapPin, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 import { Card, CardText, CardTitle } from '@/components/ui/Card';
 import { type Venue } from '@/data/mock';
+import { useI18n } from '@/i18n/I18nProvider';
 
 export function VenueCard({ venue }: { venue: Venue }) {
+  const { t } = useI18n();
   return (
     <Card className="group overflow-hidden p-0">
       <div className="relative h-48 overflow-hidden bg-[rgb(var(--secondary))]">
@@ -27,7 +29,7 @@ export function VenueCard({ venue }: { venue: Venue }) {
           <span className="flex items-center gap-1"><Star size={16} className="fill-current text-brass"/> {venue.rating} <span className="text-[rgb(var(--muted-foreground))]">({venue.reviews})</span></span>
           <span className="flex items-center gap-1 text-[rgb(var(--muted-foreground))]"><MapPin size={16}/>{venue.distanceKm} km</span>
         </div>
-        <Link to={`/venues/${venue.id}`} className="mt-5 block rounded-full bg-[rgb(var(--primary))] px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(13,102,96,.24)]">View business page</Link>
+        <Link to={`/venues/${venue.id}`} className="mt-5 block rounded-full bg-[rgb(var(--primary))] px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(13,102,96,.24)]">{t('viewBusinessPage')}</Link>
       </div>
     </Card>
   );

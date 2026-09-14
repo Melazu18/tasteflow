@@ -1,11 +1,13 @@
 import { Card, CardText, CardTitle } from '@/components/ui/Card';
+import { useI18n } from '@/i18n/I18nProvider';
 
 export function AboutPage(){
+  const { t } = useI18n();
   return (
     <section className="container-page py-12">
       <div className="premium-shell p-7 sm:p-10">
         <p className="eyebrow">About</p>
-        <h1 className="section-title mt-3">TasteFlow is hospitality infrastructure, not just event software</h1>
+        <h1 className="section-title mt-3">{t('aboutTitle')}</h1>
         <p className="section-copy mt-4">TasteFlow combines B2B onboarding, marketplace discovery, merchant dashboards, event publishing, offers, menu management, and local tourism visibility in a refined product surface.</p>
       </div>
       <div className="mt-8 grid gap-5 md:grid-cols-3">

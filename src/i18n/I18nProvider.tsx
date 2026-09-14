@@ -25,6 +25,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     about: 'About',
     dashboard: 'Dashboard',
     register: 'Register business',
+    marketplaceFooter: 'Marketplace', businessFooter: 'Business', companyFooter: 'Company',
     explore: 'Explore marketplace',
     start: 'Start business profile',
 
@@ -76,6 +77,12 @@ const dictionaries: Record<Locale, Dictionary> = {
     hotel: 'Hotel',
     cafe: 'Café',
     wineBar: 'Wine bar',
+    discoverTitle: 'Discover premium hospitality businesses', discoverText: 'Search by business type, menu, offer, distance, rating, city, and tourist relevance with an editorial marketplace feel.',
+    menusTitle: 'Curated dishes, drinks, and tasting products', menusText: 'A public menu layer for dishes, drinks, tasting products, dietary tags, translations, and QR-friendly browsing.',
+    eventsTitle: 'Tasting events with premium conversion surfaces', eventsText: 'Restaurants, hotels, bars, cafés, and brands can publish bookable experiences and tasting campaigns.',
+    pricingTitle: 'Subscription plans for hospitality growth', pricingText: 'Stripe-ready plan cards for SaaS billing, feature gating, marketplace boosts, and multi-location business tools.',
+    aboutTitle: 'A hospitality operating layer for discovery and growth', contactTitle: 'Talk to the TasteFlow team', dashboardTitle: 'Business dashboard', dashboardText: 'Manage profile, menus, events, offers, campaigns, analytics, subscriptions, and map visibility.',
+    registerTitle: 'Register your hospitality business', registerText: 'Create a premium profile for restaurants, hotels, bars, cafés, food and beverage brands, event organizers, and tourism partners.',
   },
 
   sv: {
@@ -91,6 +98,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     about: 'Om oss',
     dashboard: 'Instrumentpanel',
     register: 'Registrera företag',
+    marketplaceFooter: 'Marknadsplats', businessFooter: 'Företag', companyFooter: 'Företag',
     explore: 'Utforska marknadsplatsen',
     start: 'Starta företagsprofil',
 
@@ -142,6 +150,12 @@ const dictionaries: Record<Locale, Dictionary> = {
     hotel: 'Hotell',
     cafe: 'Kafé',
     wineBar: 'Vinbar',
+    discoverTitle: 'Upptäck premiumföretag inom hospitality', discoverText: 'Sök efter företagstyp, meny, erbjudande, avstånd, betyg, stad och turistintresse.',
+    menusTitle: 'Utvalda rätter, drycker och smakprodukter', menusText: 'En offentlig menyyta för rätter, drycker, smakprodukter, kostetiketter, översättningar och QR-visning.',
+    eventsTitle: 'Smakevenemang med premiumkonvertering', eventsText: 'Restauranger, hotell, barer, kaféer och varumärken kan publicera bokningsbara upplevelser och smakskampanjer.',
+    pricingTitle: 'Abonnemang för hospitality-tillväxt', pricingText: 'Planer för SaaS-fakturering, funktioner, marknadsplatsplaceringar och flera verksamheter.',
+    aboutTitle: 'Ett hospitality-lager för upptäckt och tillväxt', contactTitle: 'Kontakta TasteFlow-teamet', dashboardTitle: 'Företagspanel', dashboardText: 'Hantera profil, menyer, evenemang, erbjudanden, kampanjer, analys, abonnemang och kartvisning.',
+    registerTitle: 'Registrera ditt hospitality-företag', registerText: 'Skapa en premiumprofil för restauranger, hotell, barer, kaféer, mat- och dryckesvarumärken, arrangörer och turismpartners.',
   },
 
   fr: {
@@ -157,6 +171,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     about: 'À propos',
     dashboard: 'Tableau de bord',
     register: 'Inscrire une entreprise',
+    marketplaceFooter: 'Marketplace', businessFooter: 'Entreprise', companyFooter: 'Entreprise',
     explore: 'Explorer la marketplace',
     start: 'Créer un profil professionnel',
 
@@ -208,6 +223,12 @@ const dictionaries: Record<Locale, Dictionary> = {
     hotel: 'Hôtel',
     cafe: 'Café',
     wineBar: 'Bar à vin',
+    discoverTitle: 'Découvrir les entreprises hospitality premium', discoverText: 'Recherchez par type, menu, offre, distance, note, ville et pertinence touristique.',
+    menusTitle: 'Plats, boissons et produits de dégustation sélectionnés', menusText: 'Une couche de menus publics avec produits, étiquettes alimentaires, traductions et accès QR.',
+    eventsTitle: 'Événements de dégustation et conversion premium', eventsText: 'Les restaurants, hôtels, bars, cafés et marques peuvent publier des expériences réservables.',
+    pricingTitle: 'Plans pour la croissance hospitality', pricingText: 'Des plans pour la facturation SaaS, les fonctionnalités, la visibilité et les établissements multiples.',
+    aboutTitle: 'Une couche hospitality pour la découverte et la croissance', contactTitle: 'Contacter l’équipe TasteFlow', dashboardTitle: 'Tableau de bord professionnel', dashboardText: 'Gérez profil, menus, événements, offres, campagnes, analyses, abonnements et visibilité cartographique.',
+    registerTitle: 'Inscrire votre entreprise hospitality', registerText: 'Créez un profil premium pour restaurants, hôtels, bars, cafés, marques, organisateurs et partenaires touristiques.',
   },
 
   es: {
@@ -223,6 +244,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     about: 'Acerca de',
     dashboard: 'Panel',
     register: 'Registrar negocio',
+    marketplaceFooter: 'Marketplace', businessFooter: 'Negocio', companyFooter: 'Empresa',
     explore: 'Explorar marketplace',
     start: 'Crear perfil de negocio',
 
@@ -274,6 +296,12 @@ const dictionaries: Record<Locale, Dictionary> = {
     hotel: 'Hotel',
     cafe: 'Cafetería',
     wineBar: 'Bar de vinos',
+    discoverTitle: 'Descubre negocios hospitality premium', discoverText: 'Busca por tipo de negocio, menú, oferta, distancia, valoración, ciudad y relevancia turística.',
+    menusTitle: 'Platos, bebidas y productos de degustación seleccionados', menusText: 'Una capa pública de menús con productos, etiquetas dietéticas, traducciones y acceso QR.',
+    eventsTitle: 'Eventos de degustación con conversión premium', eventsText: 'Restaurantes, hoteles, bares, cafés y marcas pueden publicar experiencias reservables.',
+    pricingTitle: 'Planes para el crecimiento hospitality', pricingText: 'Planes preparados para facturación SaaS, funciones, visibilidad y múltiples ubicaciones.',
+    aboutTitle: 'Una capa hospitality para descubrimiento y crecimiento', contactTitle: 'Habla con el equipo de TasteFlow', dashboardTitle: 'Panel del negocio', dashboardText: 'Gestiona perfil, menús, eventos, ofertas, campañas, analítica, suscripciones y visibilidad en mapas.',
+    registerTitle: 'Registra tu negocio hospitality', registerText: 'Crea un perfil premium para restaurantes, hoteles, bares, cafés, marcas, organizadores y socios turísticos.',
   },
 };
 

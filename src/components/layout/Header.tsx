@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { CurrencySwitcher } from '@/components/CurrencySwitcher';
 import { useI18n } from '@/i18n/I18nProvider';
@@ -27,6 +27,17 @@ const secondaryLinks = [
 export function Header() {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState<'ai' | 'more' | null>(null);
+  const desktopMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function closeMenu(event: PointerEvent) {
+      if (!desktopMenuRef.current?.contains(event.target as Node)) setMenu(null);
+    }
+
+    document.addEventListener('pointerdown', closeMenu);
+    return () => document.removeEventListener('pointerdown', closeMenu);
+  }, []);
 
   return (
     <header className="sticky top-0 z-40 border-b border-[rgb(var(--border))]/70 bg-[rgb(var(--background))]/82 backdrop-blur-2xl">
@@ -44,7 +55,7 @@ export function Header() {
           />
         </Link>
 
-        <nav className="mx-auto hidden min-w-0 items-center rounded-full border border-[rgb(var(--border))]/70 bg-white/50 p-1 shadow-innerGlow backdrop-blur-xl dark:bg-white/5 lg:flex">
+        <nav ref={desktopMenuRef} className="mx-auto hidden min-w-0 items-center rounded-full border border-[rgb(var(--border))]/70 bg-white/50 p-1 shadow-innerGlow backdrop-blur-xl dark:bg-white/5 lg:flex">
           {primaryLinks.map(([key, to]) => (
             <NavLink
               key={to}
@@ -60,22 +71,22 @@ export function Header() {
               {t(key)}
             </NavLink>
           ))}
-          <details className="relative">
-            <summary className="cursor-pointer list-none whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-white/70 hover:text-[rgb(var(--foreground))] dark:hover:bg-white/10">
+          <div className="relative">
+            <button type="button" onClick={() => setMenu(menu === 'ai' ? null : 'ai')} className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-white/70 hover:text-[rgb(var(--foreground))] dark:hover:bg-white/10">
               {t('aiTools')}
-            </summary>
-            <div className="absolute left-0 top-full z-50 mt-2 grid min-w-48 gap-1 rounded-2xl border border-[rgb(var(--border))]/80 bg-[rgb(var(--card))] p-2 shadow-premium">
-              {aiLinks.map(([key, to]) => <NavLink key={to} to={to} className="rounded-xl px-3 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-[rgb(var(--secondary))] hover:text-[rgb(var(--foreground))]">{t(key)}</NavLink>)}
-            </div>
-          </details>
-          <details className="relative">
-            <summary className="cursor-pointer list-none whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-white/70 hover:text-[rgb(var(--foreground))] dark:hover:bg-white/10">
+            </button>
+            {menu === 'ai' && <div className="absolute left-0 top-full z-50 mt-2 grid min-w-48 gap-1 rounded-2xl border border-[rgb(var(--border))]/80 bg-[rgb(var(--card))] p-2 shadow-premium">
+              {aiLinks.map(([key, to]) => <NavLink key={to} to={to} onClick={() => setMenu(null)} className="rounded-xl px-3 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-[rgb(var(--secondary))] hover:text-[rgb(var(--foreground))]">{t(key)}</NavLink>)}
+            </div>}
+          </div>
+          <div className="relative">
+            <button type="button" onClick={() => setMenu(menu === 'more' ? null : 'more')} className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-white/70 hover:text-[rgb(var(--foreground))] dark:hover:bg-white/10">
               {t('more')}
-            </summary>
-            <div className="absolute right-0 top-full z-50 mt-2 grid min-w-36 gap-1 rounded-2xl border border-[rgb(var(--border))]/80 bg-[rgb(var(--card))] p-2 shadow-premium">
-              {secondaryLinks.map(([key, to]) => <NavLink key={to} to={to} className="rounded-xl px-3 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-[rgb(var(--secondary))] hover:text-[rgb(var(--foreground))]">{t(key)}</NavLink>)}
-            </div>
-          </details>
+            </button>
+            {menu === 'more' && <div className="absolute right-0 top-full z-50 mt-2 grid min-w-36 gap-1 rounded-2xl border border-[rgb(var(--border))]/80 bg-[rgb(var(--card))] p-2 shadow-premium">
+              {secondaryLinks.map(([key, to]) => <NavLink key={to} to={to} onClick={() => setMenu(null)} className="rounded-xl px-3 py-2 text-sm font-semibold text-[rgb(var(--muted-foreground))] hover:bg-[rgb(var(--secondary))] hover:text-[rgb(var(--foreground))]">{t(key)}</NavLink>)}
+            </div>}
+          </div>
         </nav>
 
         <div className="hidden min-w-fit items-center gap-2 lg:flex">

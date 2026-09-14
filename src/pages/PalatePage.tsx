@@ -3,6 +3,8 @@ import { Clock3, Save, Sparkles, Trash2, Wine } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardText, CardTitle } from '@/components/ui/Card';
 import { menuItems } from '@/data/mock';
+import { useCurrency } from '@/currency/CurrencyProvider';
+import { formatConvertedCurrency } from '@/lib/currency';
 import {
   calculatePalateProfile,
   defaultTastingScores,
@@ -22,6 +24,7 @@ export function PalatePage() {
   const [sample, setSample] = useState(tastingSamples[0]);
   const [notes, setNotes] = useState('');
   const [scores, setScores] = useState<TastingScores>(defaultTastingScores);
+  const { currency } = useCurrency();
   const profile = useMemo(() => calculatePalateProfile(entries), [entries]);
   const recommendations = useMemo(() => getMenuRecommendations(profile, menuItems), [profile]);
 
@@ -132,7 +135,7 @@ export function PalatePage() {
             <Card key={recommendation.id} className="p-5">
               <div className="flex items-start justify-between gap-3"><CardTitle className="text-lg">{recommendation.name}</CardTitle><span className="rounded-full bg-[rgb(var(--secondary))] px-2.5 py-1 text-xs font-bold text-[rgb(var(--primary))]">{recommendation.match}%</span></div>
               <CardText className="mt-2">{recommendation.description}</CardText>
-              <p className="mt-4 text-sm font-semibold">{recommendation.category} · {recommendation.currency} {recommendation.price}</p>
+              <p className="mt-4 text-sm font-semibold">{recommendation.category} · {formatConvertedCurrency(recommendation.price, recommendation.currency, currency)}</p>
             </Card>
           ))}
         </div>

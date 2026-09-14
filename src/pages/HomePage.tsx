@@ -17,31 +17,31 @@ import { useI18n } from '@/i18n/I18nProvider';
 
 const features: Array<[string, string, typeof Building2]> = [
   [
-    'Merchant storefronts',
-    'Elegant business pages for restaurants, hotels, bars, cafés, brands, and tourism partners.',
+    'featureStorefrontsTitle',
+    'featureStorefrontsText',
     Building2,
   ],
   [
-    'Menu publishing',
-    'Multilingual menus with tasting notes, dietary labels, pricing, QR access, and discovery metadata.',
+    'featureMenusTitle',
+    'featureMenusText',
     Utensils,
   ],
   [
-    'Campaign studio',
-    'Local offers, seasonal campaigns, featured placements, and tourist-facing promotions.',
+    'featureCampaignsTitle',
+    'featureCampaignsText',
     Megaphone,
   ],
   [
-    'Marketplace discovery',
-    'Category browsing, trust signals, location surfaces, nearby offers, and tasting experiences.',
+    'featureMarketplaceTitle',
+    'featureMarketplaceText',
     ShoppingBag,
   ],
 ];
 
 const stats = [
-  ['4.8', 'average venue score'],
-  ['18k', 'monthly local impressions'],
-  ['7', 'hospitality categories'],
+  ['4.8', 'statVenueScore'],
+  ['18k', 'statMonthlyImpressions'],
+  ['7', 'statHospitalityCategories'],
 ];
 
 const discoveryRows = [
@@ -63,12 +63,11 @@ export function HomePage() {
             </div>
 
             <h1 className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.96] tracking-[-0.06em] sm:text-6xl lg:text-[4.85rem]">
-              The premium marketplace for hospitality discovery
+              {t('heroTitle')}
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[rgb(var(--muted-foreground))]">
-              TasteFlow gives restaurants, hotels, bars, cafés, and tasting brands a polished way to publish menus,
-              promote offers, host events, and be discovered by nearby guests and tourists.
+              {t('heroText')}
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -105,16 +104,15 @@ export function HomePage() {
 
               <div className="relative">
                 <div className="mb-6 inline-flex rounded-full border border-brass/25 bg-cream/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-lagoon">
-                  Live local discovery
+                  {t('liveDiscovery')}
                 </div>
 
                 <h2 className="max-w-md text-3xl font-bold tracking-tight text-slate-950 dark:text-white">
-                  Concierge-grade discovery for nearby guests
+                  {t('conciergeDiscoveryTitle')}
                 </h2>
 
                 <p className="mt-3 max-w-md text-sm leading-6 text-slate-600 dark:text-slate-300">
-                  Surface the right venue, menu, offer, or tasting experience based on location, intent, and
-                  hospitality category.
+                  {t('conciergeDiscoveryText')}
                 </p>
 
                 <div className="mt-8 grid gap-3">
@@ -147,10 +145,10 @@ export function HomePage() {
 
                 <div className="mt-8 rounded-3xl border border-white/70 bg-white/75 p-4 shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/10">
                   <p className="flex items-center gap-2 text-sm font-semibold text-slate-950 dark:text-white">
-                    <ConciergeBell size={16} /> Concierge-ready discovery
+                    <ConciergeBell size={16} /> {t('conciergeReady')}
                   </p>
                   <p className="mt-1 text-xs text-[rgb(var(--muted-foreground))]">
-                    Menus · offers · events · maps · nearby guests
+                    {t('conciergeMeta')}
                   </p>
                 </div>
               </div>
@@ -161,12 +159,9 @@ export function HomePage() {
 
       <section className="container-page py-12">
         <div className="mb-8 max-w-3xl">
-          <p className="eyebrow">Platform depth</p>
-          <h2 className="section-title mt-3">Built for hospitality businesses, not just events</h2>
-          <p className="section-copy mt-4">
-            TasteFlow combines venue storefronts, multilingual menus, campaign tools, tasting experiences, and
-            location-based discovery in one commercial platform.
-          </p>
+          <p className="eyebrow">{t('platformDepth')}</p>
+          <h2 className="section-title mt-3">{t('platformTitle')}</h2>
+          <p className="section-copy mt-4">{t('platformText')}</p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -175,8 +170,8 @@ export function HomePage() {
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[rgb(var(--secondary))] text-lagoon dark:text-turquoise">
                 <Icon />
               </span>
-              <CardTitle className="mt-5">{title}</CardTitle>
-              <CardText className="mt-2">{text}</CardText>
+              <CardTitle className="mt-5">{t(title)}</CardTitle>
+              <CardText className="mt-2">{t(text)}</CardText>
             </Card>
           ))}
         </div>
@@ -185,15 +180,13 @@ export function HomePage() {
       <section className="container-page py-12">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="eyebrow">Curated discovery</p>
-            <h2 className="section-title mt-3">Featured hospitality businesses</h2>
-            <p className="section-copy mt-3">
-              Curated venues, menus, offers, and experiences designed for guests already nearby.
-            </p>
+            <p className="eyebrow">{t('curatedDiscovery')}</p>
+            <h2 className="section-title mt-3">{t('featuredBusinesses')}</h2>
+            <p className="section-copy mt-3">{t('featuredBusinessesText')}</p>
           </div>
 
           <Link className="hidden font-semibold text-lagoon hover:text-turquoise sm:block" to="/discover">
-            View all
+            {t('viewAll')}
           </Link>
         </div>
 
