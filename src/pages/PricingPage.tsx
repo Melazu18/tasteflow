@@ -1,4 +1,6 @@
 import { Check } from 'lucide-react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/Button';
 import { Card, CardText, CardTitle } from '@/components/ui/Card';
 import { useCurrency } from '@/currency/CurrencyProvider';
@@ -14,6 +16,7 @@ const plans: Array<[string, string, string[], string]> = [
 export function PricingPage(){
   const { currency } = useCurrency();
   const { t } = useI18n();
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   return (
     <section className="container-page py-12">
       <div className="premium-shell p-7 sm:p-10">
@@ -30,7 +33,8 @@ export function PricingPage(){
             <p className="mt-7 text-5xl font-semibold tracking-[-0.05em]">{formatConvertedCurrency(Number(price), 'EUR', currency)}<span className="text-base font-normal tracking-normal text-[rgb(var(--muted-foreground))]">/mo</span></p>
             <div className="my-7 luxury-divider" />
             <div className="grid gap-3">{features.map(f=><p className="flex items-center gap-2 text-sm font-medium" key={f}><Check size={16} className="text-lagoon"/>{f}</p>)}</div>
-            <Button className="mt-8 w-full" variant={name==='Growth'?'primary':'outline'}>Choose {name}</Button>
+            <Button type="button" className="mt-8 w-full" variant={name==='Growth'?'primary':'outline'} onClick={() => setSelectedPlan(name)}>{selectedPlan === name ? t('planSelected') : `${t('choosePlan')} ${name}`}</Button>
+            {selectedPlan === name && <Link className="mt-3 block text-center text-sm font-semibold text-[rgb(var(--primary))] hover:text-[rgb(var(--accent))]" to={`/contact?plan=${name}`}>{t('contactAboutPlan')}</Link>}
           </Card>
         ))}
       </div>

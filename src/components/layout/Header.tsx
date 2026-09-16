@@ -22,6 +22,7 @@ const aiLinks = [
 const secondaryLinks = [
   ['pricing', '/pricing'],
   ['about', '/about'],
+  ['contact', '/contact'],
 ];
 
 export function Header() {
@@ -102,6 +103,9 @@ export function Header() {
 
           <Link to="/business/register">
             <Button className="h-11 whitespace-nowrap px-4 text-sm">{t('register')}</Button>
+          </Link>
+          <Link to="/contact">
+            <Button variant="secondary" className="h-11 whitespace-nowrap px-4 text-sm">{t('contact')}</Button>
           </Link>
         </div>
 
