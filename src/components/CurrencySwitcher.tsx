@@ -8,7 +8,7 @@ export function CurrencySwitcher() {
     <select
       value={currency}
       onChange={(event) => setCurrency(event.target.value as typeof currency)}
-      className="h-11 rounded-full border border-[rgb(var(--border))] bg-white/75 px-4 text-sm font-semibold text-[rgb(var(--foreground))] shadow-soft outline-none transition hover:bg-white focus:border-lagoon dark:bg-white/10"
+      className="h-11 min-w-0 w-full rounded-full border border-[rgb(var(--border))] bg-white/75 px-4 text-sm font-semibold text-[rgb(var(--foreground))] shadow-soft outline-none transition hover:bg-white focus:border-lagoon dark:border-[rgb(var(--border))] dark:bg-[rgb(var(--card))] dark:text-[rgb(var(--foreground))] sm:w-auto"
       aria-label="Select currency"
     >
       {supportedCurrencies.map((item) => (

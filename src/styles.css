@@ -59,6 +59,15 @@
   h1, h2, h3 { letter-spacing: -0.045em; }
   a { @apply transition-colors; }
   ::selection { background: rgba(18, 171, 157, .22); }
+  select,
+  select option {
+    color: rgb(var(--foreground));
+    background-color: rgb(var(--card));
+  }
+  option {
+    color: rgb(var(--foreground));
+    background-color: rgb(var(--card));
+  }
 }
 
 @layer components {

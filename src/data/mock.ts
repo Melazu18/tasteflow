@@ -32,12 +32,27 @@ export type Venue = {
 export type MenuItem = {
   id: string;
   venueId: string;
+  businessId?: string;
+  businessName?: string;
+  locale?: 'en' | 'sv' | 'fr' | 'es';
   name: string;
   category: string;
   price: number;
   currency: SupportedCurrency;
   dietary: string[];
+  allergens?: string[];
+  cuisine?: string[];
+  drinkType?: string[];
+  mealOccasion?: string[];
   description: string;
+  imageUrl?: string;
+  isAvailable?: boolean;
+  availability?: Array<{
+    day: string;
+    start: string;
+    end: string;
+    available: boolean;
+  }>;
   flavor: TastingScores;
 };
 
@@ -147,67 +162,126 @@ export const menuItems: MenuItem[] = [
   {
     id: 'm1',
     venueId: 'nordic-harbor',
+    businessId: 'nordic-harbor',
+    businessName: 'Nordic Harbor Kitchen',
+    locale: 'en',
     name: 'Sea buckthorn scallop',
     category: 'Tasting',
     price: 185,
     currency: 'SEK',
     dietary: ['Pescatarian'],
+    allergens: ['Shellfish', 'Dairy'],
+    cuisine: ['Nordic'],
+    drinkType: ['Wine'],
+    mealOccasion: ['Dinner', 'Tasting'],
     description: 'Scallop, sea buckthorn beurre blanc, dill oil.',
+    imageUrl: 'https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=80',
+    isAvailable: true,
+    availability: [
+      { day: 'Mon', start: '17:00', end: '22:00', available: true },
+      { day: 'Tue', start: '17:00', end: '22:00', available: true },
+      { day: 'Wed', start: '17:00', end: '22:00', available: true },
+    ],
     flavor: { acidity: 4, body: 3, tannin: 1, sweetness: 2, aroma: 4 },
   },
   {
     id: 'm2',
     venueId: 'nordic-harbor',
+    businessId: 'nordic-harbor',
+    businessName: 'Nordic Harbor Kitchen',
+    locale: 'en',
     name: 'Nordic garden menu',
     category: 'Menu',
     price: 795,
     currency: 'SEK',
     dietary: ['Vegetarian'],
+    allergens: ['Gluten', 'Sesame'],
+    cuisine: ['Nordic', 'Seasonal'],
+    drinkType: ['Tea'],
+    mealOccasion: ['Dinner', 'Chef tasting'],
     description: 'A five-course plant-forward seasonal menu.',
+    imageUrl: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80',
+    isAvailable: true,
     flavor: { acidity: 3, body: 3, tannin: 1, sweetness: 2, aroma: 4 },
   },
   {
     id: 'm3',
     venueId: 'teal-room',
+    businessId: 'teal-room',
+    businessName: 'The Teal Room Hotel Bar',
+    locale: 'en',
     name: 'Local spirits flight',
     category: 'Drinks',
     price: 245,
     currency: 'DKK',
     dietary: [],
+    allergens: ['None'],
+    cuisine: ['Cocktail'],
+    drinkType: ['Cocktail'],
+    mealOccasion: ['Evening', 'Hotel bar'],
     description: 'Three local spirits with small bites and origin stories.',
+    imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80',
+    isAvailable: true,
     flavor: { acidity: 2, body: 4, tannin: 3, sweetness: 2, aroma: 5 },
   },
   {
     id: 'm4',
     venueId: 'terra-beans',
+    businessId: 'terra-beans',
+    businessName: 'Terra Beans Café',
+    locale: 'en',
     name: 'Roast discovery tray',
     category: 'Coffee',
     price: 145,
     currency: 'SEK',
     dietary: ['Vegan option'],
+    allergens: ['None'],
+    cuisine: ['Cafe'],
+    drinkType: ['Coffee'],
+    mealOccasion: ['Breakfast', 'Brunch'],
     description: 'Three roasts, aroma notes, and pastry pairing.',
+    imageUrl: 'https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=900&q=80',
+    isAvailable: true,
     flavor: { acidity: 4, body: 3, tannin: 1, sweetness: 2, aroma: 5 },
   },
   {
     id: 'm5',
     venueId: 'tropinord',
+    businessId: 'tropinord',
+    businessName: 'TropiNord',
+    locale: 'en',
     name: 'TropiNord Signature Tea Collection',
     category: 'Premium tea',
     price: 245,
     currency: 'SEK',
     dietary: ['Vegan'],
+    allergens: ['None'],
+    cuisine: ['Tea'],
+    drinkType: ['Tea'],
+    mealOccasion: ['Afternoon', 'Tasting'],
     description: 'A curated collection of high-quality teas selected for aroma, balance, and memorable tasting sessions.',
+    imageUrl: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=900&q=80',
+    isAvailable: true,
     flavor: { acidity: 2, body: 3, tannin: 2, sweetness: 3, aroma: 5 },
   },
   {
     id: 'm6',
     venueId: 'tropinord',
+    businessId: 'tropinord',
+    businessName: 'TropiNord',
+    locale: 'en',
     name: 'Nordic Botanical Infusion',
     category: 'Tea blend',
     price: 165,
     currency: 'SEK',
     dietary: ['Caffeine-free', 'Vegan'],
+    allergens: ['None'],
+    cuisine: ['Tea'],
+    drinkType: ['Tea'],
+    mealOccasion: ['Afternoon'],
     description: 'A fragrant botanical blend created for slow afternoons and guided sensory exploration.',
+    imageUrl: 'https://images.unsplash.com/photo-1466669424601-7a17c3416d41?auto=format&fit=crop&w=900&q=80',
+    isAvailable: true,
     flavor: { acidity: 1, body: 2, tannin: 1, sweetness: 4, aroma: 5 },
   },
 ];
@@ -258,10 +332,10 @@ export const events: Event[] = [
   {
     id: 'e5',
     venueId: 'tropinord',
-    title: 'TropiNord tea tasting at Restaurang Vesten',
+    title: 'TropiNord tea tasting at Restaurang Västan',
     date: '2026-09-24',
     recurrence: 'Every last Thursday · 12:00',
-    address: 'Högskolan Väst, Trollhättan, Sweden',
+    address: 'Högskolan Väst (University West), Gustava Melins Gata 2, 461 32 Trollhättan, Sweden',
     seats: 20,
     price: 0,
     currency: 'SEK',
